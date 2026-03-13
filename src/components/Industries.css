@@ -1,0 +1,407 @@
+/* ========================================
+   INDUSTRIES — Flip Card Row (Light)
+   ======================================== */
+.industries {
+  background: #F7F8FC;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.ind-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.ind-label {
+  color: rgba(0, 51, 102, 0.5) !important;
+}
+
+.ind-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0B1120;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.ind-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: rgba(11, 17, 32, 0.5);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   CAROUSEL CONTAINER
+   ======================================== */
+.ind-carousel {
+  position: relative;
+}
+
+/* ========================================
+   CARD GRID — Horizontal scroll track
+   ======================================== */
+.ind-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0 20px;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ind-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================
+   CAROUSEL ARROWS
+   ======================================== */
+.ind-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(11, 17, 32, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.ind-arrow svg {
+  width: 20px;
+  height: 20px;
+  color: #0B1120;
+}
+.ind-arrow:hover {
+  background: #0B1120;
+  border-color: #0B1120;
+}
+.ind-arrow:hover svg {
+  color: #fff;
+}
+.ind-arrow-prev {
+  left: -24px;
+}
+.ind-arrow-next {
+  right: -24px;
+}
+.ind-arrow-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   FLIP CARD WRAPPER — Perspective container
+   ======================================== */
+.ind-card-wrapper {
+  flex: 0 0 340px;
+  width: 340px;
+  perspective: 1000px;
+  min-height: 480px;
+  scroll-snap-align: start;
+}
+
+/* ========================================
+   CARD — The flipping element
+   ======================================== */
+.ind-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.ind-card-wrapper:hover .ind-card {
+  transform: rotateY(180deg);
+}
+
+/* ========================================
+   CARD FACES — Shared styles
+   ======================================== */
+.ind-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   FRONT FACE — Photo + Gradient
+   ======================================== */
+.ind-front {
+  z-index: 2;
+}
+
+.ind-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.ind-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ind-color) 88%, black) 0%,
+    color-mix(in srgb, var(--ind-color) 55%, transparent) 50%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.ind-front-content {
+  position: relative;
+  z-index: 2;
+  padding: 28px 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   BACK FACE — Detailed Content
+   ======================================== */
+.ind-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--ind-color) 90%, black) 0%,
+    color-mix(in srgb, var(--ind-color) 70%, black) 50%,
+    color-mix(in srgb, var(--ind-color) 55%, black) 100%
+  );
+}
+
+.ind-back-content {
+  padding: 24px 18px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ========================================
+   ICON CIRCLE
+   ======================================== */
+.ind-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.ind-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Front: push icon to top, title near bottom */
+.ind-front-content .ind-card-icon {
+  margin-bottom: auto;
+}
+
+/* ========================================
+   TITLE
+   ======================================== */
+.ind-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* ========================================
+   BACK — Description
+   ======================================== */
+.ind-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 12px 0 20px;
+}
+
+/* ========================================
+   BACK — Stats
+   ======================================== */
+.ind-card-stats {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.ind-stat {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 7px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ind-stat-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.ind-stat-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   BACK — Key Clients
+   ======================================== */
+.ind-card-clients {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: auto;
+}
+
+.ind-clients-label {
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 5px;
+}
+
+.ind-clients-list {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+/* ========================================
+   RESPONSIVE — LARGE TABLET
+   ======================================== */
+@media (max-width: 1100px) {
+  .ind-card-wrapper {
+    flex: 0 0 300px;
+    width: 300px;
+    min-height: 420px;
+  }
+  .ind-headline {
+    font-size: 32px;
+  }
+  .ind-arrow-prev { left: -12px; }
+  .ind-arrow-next { right: -12px; }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 768px) {
+  .ind-card-wrapper {
+    flex: 0 0 280px;
+    width: 280px;
+    min-height: 380px;
+  }
+  .ind-headline {
+    font-size: 28px;
+  }
+  .ind-card-title {
+    font-size: 18px;
+  }
+  .ind-stat-value {
+    font-size: 16px;
+  }
+  .ind-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  .ind-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .ind-arrow-prev { left: -8px; }
+  .ind-arrow-next { right: -8px; }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .ind-card-wrapper {
+    flex: 0 0 260px;
+    width: 260px;
+    min-height: 340px;
+  }
+  .ind-header {
+    margin-bottom: 36px;
+  }
+  .ind-headline {
+    font-size: 24px;
+  }
+  .ind-card-title {
+    font-size: 20px;
+  }
+  .ind-back-content {
+    padding: 24px 20px;
+  }
+  .ind-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .ind-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+  .ind-arrow-prev { left: -4px; }
+  .ind-arrow-next { right: -4px; }
+}

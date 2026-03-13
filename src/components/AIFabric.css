@@ -1,0 +1,366 @@
+/* ========================================
+   AI FABRIC — Six Solutions Section
+   Full-width stacked cards (reference style)
+   ======================================== */
+.ai-fabric {
+  background: linear-gradient(170deg, #0A1628 0%, #0D1B2A 40%, #0B2818 70%, #0D3A1A 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot grid overlay */
+.ai-fabric::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.af-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.af-label {
+  color: rgba(145, 196, 107, 0.7) !important;
+}
+
+.af-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.af-accent {
+  color: var(--green-cta, #91C46B);
+}
+
+.af-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   CARD LIST — full-width stacked
+   ======================================== */
+.af-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   CARD — full-width horizontal
+   ======================================== */
+.af-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  position: relative;
+}
+
+.af-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: color-mix(in srgb, var(--card-color) 25%, transparent);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Gradient accent bar */
+.af-card-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--card-color), color-mix(in srgb, var(--card-color) 40%, #91C46B));
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+
+.af-card:hover .af-card-bar {
+  opacity: 1;
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+.af-card-content {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ========================================
+   META ROW — icon/number ... category
+   ======================================== */
+.af-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.af-card-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.af-card-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.af-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-color) 20%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.af-card:hover .af-card-icon {
+  background: color-mix(in srgb, var(--card-color) 18%, transparent);
+  border-color: color-mix(in srgb, var(--card-color) 35%, transparent);
+}
+
+.af-card-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--card-color);
+}
+
+.af-card-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--card-color);
+  opacity: 0.5;
+}
+
+.af-card-category {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--card-color);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.af-card:hover .af-card-category {
+  opacity: 0.8;
+}
+
+.af-card-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green-cta, #91C46B);
+  background: rgba(145, 196, 107, 0.1);
+  border: 1px solid rgba(145, 196, 107, 0.2);
+  border-radius: 100px;
+  padding: 3px 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ========================================
+   TITLE + DESC
+   ======================================== */
+.af-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.af-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ========================================
+   BOTTOM ROW — tags + view solution
+   ======================================== */
+.af-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.af-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.af-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 100px;
+  padding: 5px 14px;
+  transition: all 0.25s ease;
+}
+
+.af-card:hover .af-tag {
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* View Solution link */
+.af-card-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-cta, #91C46B);
+  background: rgba(145, 196, 107, 0.08);
+  border: 1px solid rgba(145, 196, 107, 0.15);
+  border-radius: 100px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.af-card-link:hover {
+  background: rgba(145, 196, 107, 0.14);
+  border-color: rgba(145, 196, 107, 0.3);
+}
+
+.af-card-link svg {
+  transition: transform 0.25s ease;
+}
+
+.af-card-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ========================================
+   RESPONSIVE — LARGE TABLET
+   ======================================== */
+@media (max-width: 1100px) {
+  .af-heading {
+    font-size: 34px;
+  }
+  .af-card-name {
+    font-size: 24px;
+  }
+  .af-card-content {
+    padding: 24px 26px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 768px) {
+  .af-heading {
+    font-size: 28px;
+  }
+  .af-subtitle {
+    font-size: 14px;
+  }
+  .af-card-content {
+    padding: 22px 20px;
+  }
+  .af-card-name {
+    font-size: 22px;
+  }
+  .af-card-desc {
+    font-size: 13px;
+  }
+  .af-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .af-card-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+  .af-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  .af-header {
+    margin-bottom: 40px;
+  }
+  .af-list {
+    gap: 14px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .af-heading {
+    font-size: 24px;
+  }
+  .af-card-content {
+    padding: 18px 16px;
+  }
+  .af-card-name {
+    font-size: 20px;
+  }
+  .af-tag {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .af-card-link {
+    font-size: 12px;
+    padding: 7px 16px;
+  }
+  .af-card-category {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+  .af-card-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

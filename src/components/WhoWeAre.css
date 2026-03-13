@@ -1,0 +1,253 @@
+/* ========================================
+   WHO WE ARE — Statement + KPIs
+   ======================================== */
+.who-we-are {
+  background: #002244;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mesh gradient blobs */
+.who-we-are::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 60%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(42, 125, 125, 0.18) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.who-we-are::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: -5%;
+  width: 55%;
+  height: 130%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(100, 118, 216, 0.15) 0%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.wwa-grid-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Third mesh blob — top right warm accent */
+.wwa-grid-pattern::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: 15%;
+  width: 40%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(145, 196, 107, 0.08) 0%, transparent 65%);
+  filter: blur(50px);
+}
+
+/* Fourth mesh blob — bottom left subtle */
+.wwa-grid-pattern::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: 25%;
+  width: 35%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(19, 133, 176, 0.1) 0%, transparent 65%);
+  filter: blur(55px);
+}
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+.wwa-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   STATEMENT
+   ======================================== */
+.wwa-statement {
+  max-width: 800px;
+}
+
+.wwa-eyebrow {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--green-cta);
+  margin-bottom: 24px;
+}
+
+.wwa-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.wwa-highlight {
+  color: var(--green-cta);
+}
+
+/* ========================================
+   KPI STRIP — 3 across
+   ======================================== */
+.wwa-kpis {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+
+.wwa-kpi {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+}
+
+.wwa-kpi:first-child {
+  padding-left: 0;
+}
+
+.wwa-kpi:last-child {
+  padding-right: 0;
+}
+
+.wwa-kpi-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Number */
+.wwa-kpi-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--green-cta);
+  line-height: 1;
+  letter-spacing: -2px;
+  flex-shrink: 0;
+}
+
+.wwa-kpi-pct {
+  font-size: 36px;
+  letter-spacing: -1px;
+}
+
+/* Text beside number */
+.wwa-kpi-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wwa-kpi-unit {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.wwa-kpi-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .wwa-headline {
+    font-size: 28px;
+  }
+  .wwa-kpi-number {
+    font-size: 52px;
+  }
+  .wwa-kpi-pct {
+    font-size: 30px;
+  }
+  .wwa-kpi {
+    padding: 0 24px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .wwa-layout {
+    gap: 36px;
+  }
+  .wwa-statement {
+    text-align: center;
+  }
+  .wwa-headline {
+    font-size: 24px;
+    text-align: center;
+  }
+  .wwa-eyebrow {
+    margin-bottom: 16px;
+  }
+  .wwa-kpis {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 32px;
+    border-top: none;
+  }
+  .wwa-kpi {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .wwa-kpi:first-child {
+    padding-left: 0;
+  }
+  .wwa-kpi:last-child {
+    border-bottom: none;
+  }
+  .wwa-kpi-divider {
+    display: none;
+  }
+  .wwa-kpi-number {
+    font-size: 48px;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wwa-headline {
+    font-size: 22px;
+  }
+  .wwa-kpi-number {
+    font-size: 42px;
+  }
+  .wwa-kpi-pct {
+    font-size: 24px;
+  }
+}

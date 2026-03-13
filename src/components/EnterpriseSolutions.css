@@ -1,0 +1,433 @@
+/* ========================================
+   ENTERPRISE SOLUTIONS
+   ======================================== */
+.solutions {
+  background: var(--bg-white);
+}
+
+.solutions-headline {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 56px;
+}
+
+/* ========================================
+   TAG — Colored pill badge
+   ======================================== */
+.sol-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--sol-color);
+  background: color-mix(in srgb, var(--sol-color) 10%, white);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+/* ========================================
+   CTA LINK
+   ======================================== */
+.sol-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sol-color);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.sol-cta:hover {
+  gap: 10px;
+  color: color-mix(in srgb, var(--sol-color) 80%, black);
+}
+
+.sol-cta svg {
+  transition: transform 0.2s ease;
+}
+
+.sol-cta:hover svg {
+  transform: translateX(2px);
+}
+
+/* ========================================
+   HERO CARD — First solution (full-width)
+   ======================================== */
+.sol-hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  background: var(--sol-gradient);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sol-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--sol-color) 20%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.sol-hero-text {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.sol-hero .sol-tag {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sol-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.sol-hero-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 440px;
+}
+
+/* ========================================
+   HERO METRICS — Row of key outcomes
+   ======================================== */
+.sol-hero-metrics {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.sol-hero-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  min-width: 0;
+}
+
+.sol-hero-metric-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.sol-hero-metric-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.sol-hero .sol-cta {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sol-hero .sol-cta:hover {
+  color: #fff;
+}
+
+/* Hero screenshot */
+.sol-hero-visual {
+  flex: 0 0 52%;
+  position: relative;
+  z-index: 1;
+}
+
+.sol-screen {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+
+.sol-hero:hover .sol-screen {
+  transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
+}
+
+.sol-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   GRID — 2×2 remaining cards
+   ======================================== */
+.sol-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* ========================================
+   CARD — Grid item
+   ======================================== */
+.sol-card {
+  background: #FFFFFF;
+  border: 1px solid #EEF0F3;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: solCardUp 0.5s ease-out both;
+}
+
+.sol-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 50px color-mix(in srgb, var(--sol-color) 12%, transparent),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: color-mix(in srgb, var(--sol-color) 20%, transparent);
+}
+
+/* Card screenshot area */
+.sol-card-visual {
+  background: var(--sol-gradient);
+  padding: 24px 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.sol-card-visual::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.sol-card-screen {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(4px);
+  transition: transform 0.35s ease;
+}
+
+.sol-card:hover .sol-card-screen {
+  transform: translateY(0);
+}
+
+.sol-card-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Card text body */
+.sol-card-body {
+  padding: 24px 28px 28px;
+}
+
+.sol-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-charcoal);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.sol-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* ========================================
+   CARD METRICS — Inline metric pills
+   ======================================== */
+.sol-card-metrics {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sol-card-metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: color-mix(in srgb, var(--sol-color) 6%, white);
+  border-radius: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sol-card-metric-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--sol-color);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sol-card-metric-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #86868b;
+  line-height: 1.3;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes solCardUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .sol-hero {
+    padding: 36px;
+    gap: 32px;
+  }
+  .sol-hero-title {
+    font-size: 24px;
+  }
+  .sol-hero-visual {
+    flex: 0 0 48%;
+  }
+  .sol-hero-metrics {
+    gap: 16px;
+  }
+  .sol-hero-metric-value {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .sol-hero {
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 28px;
+  }
+  .sol-hero-visual {
+    flex: none;
+    width: 100%;
+  }
+  .sol-screen {
+    transform: none;
+  }
+  .sol-hero:hover .sol-screen {
+    transform: none;
+  }
+  .sol-hero-title {
+    font-size: 22px;
+  }
+  .sol-hero-metrics {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sol-hero-metric {
+    padding: 8px 12px;
+  }
+  .sol-hero-metric-value {
+    font-size: 22px;
+  }
+  .sol-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .sol-card-metrics {
+    gap: 8px;
+  }
+  .sol-card-metric {
+    padding: 6px 10px;
+  }
+  .sol-card-metric-value {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sol-hero {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+  .sol-hero-title {
+    font-size: 20px;
+  }
+  .sol-hero-metric-value {
+    font-size: 20px;
+  }
+  .sol-hero-metric {
+    padding: 7px 10px;
+  }
+  .sol-card-body {
+    padding: 20px 22px 24px;
+  }
+  .sol-card-title {
+    font-size: 17px;
+  }
+  .sol-card-metric-value {
+    font-size: 16px;
+  }
+  .sol-card-metric-label {
+    font-size: 10px;
+  }
+}

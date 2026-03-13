@@ -1,0 +1,268 @@
+/* ========================================
+   PLATFORMS — Four Platforms Section
+   ======================================== */
+.platforms {
+  background: #f5f5f7;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.pl-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pl-label {
+  color: rgba(0, 51, 102, 0.45) !important;
+}
+
+.pl-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.pl-accent {
+  color: var(--green-cta, #91C46B);
+}
+
+.pl-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #86868b;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   GRID — 2x2 layout, top row wider
+   ======================================== */
+.pl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ========================================
+   CARD
+   ======================================== */
+.pl-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pl-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-gradient, var(--card-color));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.pl-card:hover {
+  border-color: color-mix(in srgb, var(--card-color) 20%, transparent);
+  box-shadow:
+    0 8px 30px color-mix(in srgb, var(--card-color) 8%, transparent),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  transform: translateY(-3px);
+}
+
+.pl-card:hover::before {
+  opacity: 1;
+}
+
+/* ========================================
+   CARD TOP — Icon + Number
+   ======================================== */
+.pl-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pl-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--card-color) 8%, #ffffff);
+  border: 1.5px solid color-mix(in srgb, var(--card-color) 15%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+}
+
+.pl-card:hover .pl-card-icon {
+  background: color-mix(in srgb, var(--card-color) 12%, #ffffff);
+  border-color: color-mix(in srgb, var(--card-color) 30%, transparent);
+  transform: scale(1.05);
+}
+
+.pl-card-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--card-color);
+}
+
+.pl-card-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--card-color);
+  background: color-mix(in srgb, var(--card-color) 8%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--card-color) 12%, transparent);
+  border-radius: 100px;
+  padding: 4px 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+.pl-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 4px 0 0;
+  line-height: 1.25;
+}
+
+.pl-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #86868b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========================================
+   FEATURE TAGS — 2x2 grid
+   ======================================== */
+.pl-card-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pl-feature {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #6e6e73;
+  padding: 6px 0;
+  position: relative;
+  padding-left: 14px;
+}
+
+.pl-feature::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--card-color);
+  opacity: 0.4;
+}
+
+/* ========================================
+   RESPONSIVE — LARGE TABLET
+   ======================================== */
+@media (max-width: 1100px) {
+  .pl-heading {
+    font-size: 34px;
+  }
+  .pl-card {
+    padding: 28px 24px;
+  }
+  .pl-card-name {
+    font-size: 18px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 768px) {
+  .pl-heading {
+    font-size: 28px;
+  }
+  .pl-subtitle {
+    font-size: 14px;
+  }
+  .pl-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .pl-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+  .pl-card-name {
+    font-size: 17px;
+  }
+  .pl-card-desc {
+    font-size: 13px;
+  }
+  .pl-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .pl-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .pl-header {
+    margin-bottom: 36px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .pl-heading {
+    font-size: 24px;
+  }
+  .pl-card {
+    padding: 20px 18px;
+  }
+  .pl-card-name {
+    font-size: 16px;
+  }
+  .pl-feature {
+    font-size: 11.5px;
+  }
+  .pl-card-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+}

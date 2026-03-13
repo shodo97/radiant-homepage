@@ -1,0 +1,288 @@
+/* ========================================
+   AI AGENTS — Modern tabbed agent showcase
+   ======================================== */
+.ai-agents {
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.ag-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.ag-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.ag-accent {
+  color: var(--green-cta, #91C46B);
+}
+
+.ag-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #86868b;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   FAMILY TABS — Horizontal pill row
+   ======================================== */
+.ag-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.ag-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6e6e73;
+  background: #f5f5f7;
+  border: 1.5px solid transparent;
+  border-radius: 100px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+
+.ag-tab:hover:not(.ag-tab--active) {
+  color: #1d1d1f;
+  background: #ededf0;
+}
+
+.ag-tab--active {
+  color: var(--tab-color);
+  background: color-mix(in srgb, var(--tab-color) 8%, white);
+  border-color: color-mix(in srgb, var(--tab-color) 20%, transparent);
+  font-weight: 600;
+}
+
+/* Color dot indicator */
+.ag-tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.ag-tab--active .ag-tab-dot {
+  opacity: 1;
+  background: var(--tab-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tab-color) 15%, transparent);
+}
+
+/* ========================================
+   AGENT CARDS — 5-column grid
+   ======================================== */
+.ag-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.ag-card {
+  background: #f9fafb;
+  border-radius: 20px;
+  padding: 28px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  cursor: default;
+  animation: agCardIn 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+.ag-card:hover {
+  background: #ffffff;
+  border-color: color-mix(in srgb, var(--family-color) 18%, transparent);
+  box-shadow:
+    0 4px 20px color-mix(in srgb, var(--family-color) 10%, transparent),
+    0 1px 6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-3px);
+}
+
+@keyframes agCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Agent icon — gradient circle */
+.ag-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--family-gradient, var(--family-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--family-color) 22%, transparent);
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+}
+
+.ag-card:hover .ag-card-icon {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--family-color) 28%, transparent);
+}
+
+.ag-card-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+/* Agent name */
+.ag-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Agent description */
+.ag-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  color: #86868b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE — LARGE TABLET
+   ======================================== */
+@media (max-width: 1100px) {
+  .ag-heading {
+    font-size: 34px;
+  }
+  .ag-cards {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .ag-card {
+    padding: 22px 16px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .ag-heading {
+    font-size: 30px;
+  }
+  .ag-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .ag-tab {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .ag-heading {
+    font-size: 26px;
+  }
+  .ag-subtitle {
+    font-size: 14px;
+  }
+  .ag-tabs {
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+  .ag-tab {
+    font-size: 12px;
+    padding: 7px 14px;
+    gap: 6px;
+  }
+  .ag-tab-dot {
+    width: 6px;
+    height: 6px;
+  }
+  .ag-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .ag-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  .ag-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+  .ag-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .ag-heading {
+    font-size: 22px;
+  }
+  .ag-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .ag-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .ag-card {
+    padding: 18px 14px;
+  }
+  .ag-card-name {
+    font-size: 13px;
+  }
+  .ag-card-desc {
+    font-size: 11.5px;
+  }
+}

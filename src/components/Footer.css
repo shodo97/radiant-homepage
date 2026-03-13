@@ -1,0 +1,271 @@
+/* ========================================
+   FOOTER — Professional Enterprise Footer
+   ======================================== */
+.footer {
+  background: #0A1628;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient accent line at top */
+.footer-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #2A7D7D 0%, #91C46B 35%, #1385B0 65%, #6476D8 100%);
+}
+
+/* ========================================
+   MAIN GRID — Brand + 4 Link Columns
+   ======================================== */
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, 1fr);
+  gap: 48px;
+  padding: 64px 0 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================
+   BRAND COLUMN
+   ======================================== */
+.footer-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.footer-logo-tilde {
+  color: #2A7D7D;
+  margin-right: 2px;
+}
+
+.footer-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.7;
+  max-width: 280px;
+  margin: 0 0 24px;
+}
+
+/* Social Icons */
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-social-link:hover {
+  background: rgba(42, 125, 125, 0.15);
+  border-color: rgba(42, 125, 125, 0.3);
+  color: #2A7D7D;
+}
+
+.footer-social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================================
+   LINK COLUMNS
+   ======================================== */
+.footer-col-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 20px;
+}
+
+.footer-col-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col-links li {
+  margin-bottom: 12px;
+}
+
+.footer-col-links a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.38);
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+}
+
+.footer-col-links a:hover {
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 4px;
+}
+
+/* ========================================
+   CERTIFICATIONS ROW
+   ======================================== */
+.footer-certs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-certs-label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+}
+
+.footer-certs-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-cert-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+
+.footer-cert-abbr {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #2A7D7D;
+  letter-spacing: 0.5px;
+}
+
+.footer-cert-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+/* ========================================
+   BOTTOM BAR
+   ======================================== */
+.footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-copy {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    padding: 48px 0 40px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 400px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL TABLET
+   ======================================== */
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+  .footer-certs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-legal {
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 0 32px;
+  }
+  .footer-certs-badges {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-cert-badge {
+    width: fit-content;
+  }
+  .footer-legal {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}

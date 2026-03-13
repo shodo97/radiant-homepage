@@ -1,0 +1,287 @@
+/* ========================================
+   WHAT WE DO — Radiant AI Fabric
+   ======================================== */
+.what-we-do {
+  background: #fff;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.wwd-headline {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.wwd-subline {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 auto 48px;
+}
+
+/* ========================================
+   ARCHITECTURE CANVAS
+   ======================================== */
+.wwd-canvas {
+  background: linear-gradient(160deg, #0a1628 0%, #0d2240 40%, #0f2a4a 100%);
+  border-radius: 20px;
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 34, 68, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle mesh blobs inside canvas */
+.wwd-canvas::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 50%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(42, 125, 125, 0.1) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.wwd-canvas::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 50%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(100, 118, 216, 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* ========================================
+   TIERS — shared
+   ======================================== */
+.wwd-tier {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.wwd-tier-label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 14px;
+}
+
+/* ========================================
+   TIER 1 — Platform Core
+   ======================================== */
+.wwd-platform-core {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px 28px;
+}
+
+.wwd-platform-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green-cta), #6bb86b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(145, 196, 107, 0.25);
+}
+
+.wwd-platform-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+}
+
+.wwd-platform-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+  margin-top: 3px;
+}
+
+/* ========================================
+   CONNECTORS
+   ======================================== */
+.wwd-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.wwd-connector-line {
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.06));
+}
+
+.wwd-connector-arrow {
+  margin-top: -1px;
+}
+
+/* ========================================
+   TIER 2 — Solutions
+   ======================================== */
+.wwd-solutions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.wwd-solution-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 18px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.wwd-sol-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sol-c);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--sol-c);
+}
+
+.wwd-solution-chip span:last-child {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+/* ========================================
+   TIER 3 — Agent Groups
+   ======================================== */
+.wwd-agents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.wwd-agent-group {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.wwd-ag-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ag-c);
+  display: block;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+.wwd-ag-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.wwd-ag-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .wwd-canvas {
+    padding: 36px 32px;
+  }
+  .wwd-solutions-row {
+    flex-wrap: wrap;
+  }
+  .wwd-solution-chip {
+    min-width: 120px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .wwd-canvas {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+  .wwd-subline {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  .wwd-platform-core {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .wwd-solutions-row {
+    gap: 8px;
+  }
+  .wwd-solution-chip {
+    min-width: calc(50% - 8px);
+    padding: 10px 14px;
+  }
+  .wwd-agents-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wwd-canvas {
+    padding: 24px 16px;
+  }
+  .wwd-solution-chip {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,274 @@
+/* ========================================
+   OUTCOMES — Proven Results
+   ======================================== */
+.outcomes {
+  background: linear-gradient(180deg, #F7F9FB 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   DECORATIVE BACKGROUND
+   ======================================== */
+.outcomes-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Dot grid pattern fading at edges */
+.outcomes-decor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 51, 102, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black 0%, transparent 100%);
+}
+
+/* Colored gradient orb */
+.outcomes-decor::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(42, 125, 125, 0.06) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.outcomes-headline {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================
+   GRID
+   ======================================== */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ========================================
+   CARD
+   ======================================== */
+.outcome-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 24px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0, 51, 102, 0.03),
+    0 4px 12px rgba(0, 51, 102, 0.04),
+    0 16px 40px rgba(0, 51, 102, 0.03);
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.outcome-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 2px 4px rgba(0, 51, 102, 0.05),
+    0 8px 24px rgba(0, 51, 102, 0.06),
+    0 28px 64px rgba(0, 51, 102, 0.06);
+}
+
+/* Top accent gradient bar */
+.outcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent 85%);
+  opacity: 0.5;
+  transition: opacity 0.35s ease;
+}
+
+.outcome-card:hover::before {
+  opacity: 1;
+}
+
+/* Hover glow blob */
+.outcome-card-glow {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  filter: blur(50px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.outcome-card:hover .outcome-card-glow {
+  opacity: 0.08;
+}
+
+/* ========================================
+   PROGRESS RING
+   ======================================== */
+.outcome-ring-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 24px;
+}
+
+.outcome-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.outcome-ring-track {
+  fill: none;
+  stroke: rgba(0, 51, 102, 0.05);
+  stroke-width: 4.5;
+}
+
+.outcome-ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+.outcome-card:hover .outcome-ring-fill {
+  opacity: 1;
+}
+
+/* Icon centered in ring */
+.outcome-ring-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outcome-ring-icon svg {
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  opacity: 0.7;
+  transition: opacity 0.35s ease;
+}
+
+.outcome-card:hover .outcome-ring-icon svg {
+  opacity: 1;
+}
+
+/* ========================================
+   NUMBER
+   ======================================== */
+.outcome-value {
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.outcome-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -2px;
+}
+
+.outcome-suffix {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+/* ========================================
+   LABEL + DESCRIPTION
+   ======================================== */
+.outcome-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+
+.outcome-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .outcomes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .outcome-number {
+    font-size: 42px;
+  }
+  .outcome-ring-wrap {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .outcomes-headline {
+    margin-bottom: 44px;
+  }
+  .outcome-card {
+    padding: 32px 20px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .outcome-number {
+    font-size: 40px;
+  }
+  .outcome-ring-wrap {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 18px;
+  }
+}

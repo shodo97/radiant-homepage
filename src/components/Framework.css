@@ -1,0 +1,363 @@
+/* ========================================
+   FRAMEWORK — Layer Stack + Detail Panel
+   ======================================== */
+.framework {
+  background: var(--bg-light-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.fw-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.fw-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 0 0 14px;
+  letter-spacing: -0.5px;
+}
+
+.fw-heading-accent {
+  color: var(--green-cta);
+}
+
+.fw-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* ========================================
+   MAIN LAYOUT — Stack left, Detail right
+   ======================================== */
+.fw-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* ========================================
+   LAYER STACK — Visual architecture diagram
+   ======================================== */
+.fw-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  padding: 8px 0;
+}
+
+/* Vertical connector line */
+.fw-stack-line {
+  position: absolute;
+  left: 25px;
+  top: 36px;
+  bottom: 36px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #91C46B,
+    #6476D8,
+    #2A7D7D,
+    #1385B0,
+    #E07A39
+  );
+  border-radius: 2px;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.fw-stack-layer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+}
+
+.fw-stack-layer:hover:not(.fw-stack-layer--active) {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.04);
+}
+
+.fw-stack-layer--active {
+  background: var(--bg-white);
+  border-color: color-mix(in srgb, var(--layer-color) 18%, transparent);
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--layer-color) 10%, transparent);
+}
+
+/* Color indicator dot */
+.fw-stack-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--layer-color) 35%, transparent);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--layer-color) 10%, transparent);
+  margin-left: 2px;
+}
+
+.fw-stack-layer--active .fw-stack-indicator {
+  background: var(--layer-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--layer-color) 16%, transparent);
+  transform: scale(1.15);
+}
+
+.fw-stack-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 20px;
+  transition: color 0.3s ease;
+}
+
+.fw-stack-layer--active .fw-stack-num {
+  color: var(--layer-color);
+}
+
+.fw-stack-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-body);
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.fw-stack-layer--active .fw-stack-title {
+  font-weight: 700;
+  color: var(--text-charcoal);
+}
+
+.fw-stack-arrow {
+  color: transparent;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.fw-stack-layer--active .fw-stack-arrow {
+  color: var(--layer-color);
+}
+
+/* ========================================
+   DETAIL PANEL — Active layer content
+   ======================================== */
+.fw-detail {
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 36px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fwSlideIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes fwSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fw-detail-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--layer-color);
+  background: color-mix(in srgb, var(--layer-color) 8%, transparent);
+  padding: 5px 12px;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.fw-detail-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-charcoal);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.fw-detail-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tags */
+.fw-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.fw-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--layer-color);
+  background: color-mix(in srgb, var(--layer-color) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--layer-color) 16%, transparent);
+  border-radius: 100px;
+  padding: 6px 16px;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+}
+
+.fw-tag:hover {
+  background: color-mix(in srgb, var(--layer-color) 14%, transparent);
+}
+
+/* Explore link */
+.fw-detail-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--layer-color);
+  text-decoration: none;
+  margin-top: 6px;
+  transition: gap 0.25s ease;
+}
+
+.fw-detail-explore:hover {
+  gap: 10px;
+}
+
+.fw-detail-explore svg {
+  transition: transform 0.25s ease;
+}
+
+.fw-detail-explore:hover svg {
+  transform: translateX(2px);
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .fw-heading {
+    font-size: 30px;
+  }
+  .fw-layout {
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+  }
+  .fw-detail {
+    padding: 28px 28px;
+  }
+  .fw-detail-title {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .fw-heading {
+    font-size: 26px;
+  }
+  .fw-subtitle {
+    font-size: 14px;
+  }
+  .fw-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  /* Stack becomes horizontal scrolling row */
+  .fw-stack {
+    flex-direction: row;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fw-stack-line {
+    display: none;
+  }
+  .fw-stack-layer {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 16px;
+    min-width: 100px;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+  }
+  .fw-stack-arrow {
+    display: none;
+  }
+  .fw-stack-num {
+    display: none;
+  }
+  .fw-stack-title {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .fw-detail {
+    padding: 24px 20px;
+  }
+  .fw-detail-title {
+    font-size: 22px;
+  }
+  .fw-tag {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .fw-heading {
+    font-size: 22px;
+  }
+  .fw-header {
+    margin-bottom: 32px;
+  }
+  .fw-stack-layer {
+    min-width: 80px;
+    padding: 10px 12px;
+  }
+  .fw-stack-title {
+    font-size: 11px;
+  }
+}

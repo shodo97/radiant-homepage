@@ -1,0 +1,488 @@
+/* ========================================
+   CASE STUDIES — Hero + Grid
+   Apple-inspired light theme
+   ======================================== */
+.case-studies {
+  background: #f5f5f7;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.cs-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.cs-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HERO CASE STUDY — Featured
+   ======================================== */
+.cs-hero {
+  display: flex;
+  gap: 48px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 48px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.35s ease;
+}
+
+.cs-hero:hover {
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 12px 48px rgba(0, 0, 0, 0.03);
+}
+
+/* ── Left Column ── */
+.cs-hero-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Label with accent line */
+.cs-hero-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #2A7D7D;
+  margin-bottom: 20px;
+}
+
+.cs-hero-label-line {
+  width: 28px;
+  height: 2px;
+  background: #2A7D7D;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Big stats headline */
+.cs-hero-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0 0 28px;
+  letter-spacing: -1px;
+}
+
+/* Company Card */
+.cs-company-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #f5f5f7;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.cs-company-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.cs-company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cs-company-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.cs-company-meta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11.5px;
+  color: #86868b;
+}
+
+/* Case Study Badge */
+.cs-case-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2A7D7D;
+  padding: 6px 14px;
+  background: rgba(42, 125, 125, 0.06);
+  border-radius: 100px;
+  margin-left: auto;
+}
+
+.cs-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2A7D7D;
+  animation: csBadgePulse 2.5s ease-in-out infinite;
+}
+
+/* Narrative */
+.cs-hero-narrative {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #6e6e73;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+/* Quote */
+.cs-hero-quote {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  background: rgba(42, 125, 125, 0.03);
+  border-left: 3px solid #2A7D7D;
+  border-radius: 0 14px 14px 0;
+  margin: 0;
+}
+
+.cs-quote-mark {
+  font-size: 24px;
+  color: #2A7D7D;
+  opacity: 0.5;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cs-quote-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.cs-quote-author {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  color: #86868b;
+}
+
+/* ── Right Column — 2×2 Metrics ── */
+.cs-hero-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  flex: 0 0 340px;
+  align-content: center;
+}
+
+.cs-hero-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 28px 24px;
+  background: #f5f5f7;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cs-hero-metric:hover {
+  transform: translateY(-2px);
+}
+
+.cs-hm-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--hm-color);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.cs-hm-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #86868b;
+  line-height: 1.35;
+}
+
+/* ========================================
+   SECONDARY CARDS — 3 Column Grid
+   ======================================== */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.cs-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cs-card:hover {
+  transform: scale(1.015);
+  box-shadow:
+    0 4px 24px color-mix(in srgb, var(--cs-color) 8%, transparent),
+    0 12px 48px color-mix(in srgb, var(--cs-color) 6%, transparent);
+}
+
+/* Tag */
+.cs-card-top {
+  margin-bottom: 14px;
+}
+
+.cs-card-tag {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cs-color);
+  padding: 5px 12px;
+  background: color-mix(in srgb, var(--cs-color) 7%, transparent);
+  border-radius: 100px;
+}
+
+/* Title */
+.cs-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+/* Description */
+.cs-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #86868b;
+  line-height: 1.6;
+  margin: 0 0 auto;
+  padding-bottom: 18px;
+}
+
+/* Bottom: Metric + Outcome */
+.cs-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 14px;
+}
+
+.cs-card-metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-card-metric-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--cs-color);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.cs-card-metric-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #86868b;
+}
+
+.cs-card-outcome {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6e6e73;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* CTA Link */
+.cs-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cs-color);
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.cs-card-link:hover {
+  gap: 12px;
+}
+
+.cs-card-link svg {
+  transition: transform 0.3s ease;
+}
+
+.cs-card-link:hover svg {
+  transform: translateX(2px);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes csBadgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ========================================
+   RESPONSIVE — LARGE TABLET
+   ======================================== */
+@media (max-width: 1100px) {
+  .cs-headline {
+    font-size: 36px;
+  }
+  .cs-hero {
+    padding: 40px 36px;
+    gap: 36px;
+  }
+  .cs-hero-heading {
+    font-size: 34px;
+  }
+  .cs-hero-right {
+    flex: 0 0 280px;
+  }
+  .cs-hm-value {
+    font-size: 26px;
+  }
+  .cs-hero-metric {
+    padding: 22px 18px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLET
+   ======================================== */
+@media (max-width: 1024px) {
+  .cs-hero {
+    flex-direction: column;
+    gap: 32px;
+    padding: 36px 32px;
+  }
+  .cs-hero-right {
+    flex: none;
+    width: 100%;
+  }
+  .cs-headline {
+    font-size: 32px;
+  }
+  .cs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .cs-headline {
+    font-size: 28px;
+  }
+  .cs-hero {
+    padding: 28px 24px;
+    border-radius: 22px;
+  }
+  .cs-hero-heading {
+    font-size: 28px;
+  }
+  .cs-hero-right {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .cs-company-card {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cs-case-badge {
+    margin-left: 0;
+  }
+  .cs-header {
+    margin-bottom: 40px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .cs-headline {
+    font-size: 24px;
+  }
+  .cs-hero-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .cs-hero {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .cs-hm-value {
+    font-size: 22px;
+  }
+  .cs-hero-metric {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .cs-card {
+    padding: 24px 20px 20px;
+    border-radius: 20px;
+  }
+  .cs-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
