@@ -7,6 +7,7 @@ import Pillars from './components/Pillars'
 import EnterpriseSolutions from './components/EnterpriseSolutions'
 import WhoWeAre from './components/WhoWeAre'
 import Outcomes from './components/Outcomes'
+import Customers from './components/Customers'
 import CaseStudies from './components/CaseStudies'
 import WhyRadiant from './components/WhyRadiant'
 import GetInTouch from './components/GetInTouch'
@@ -25,6 +26,7 @@ function App() {
         <EnterpriseSolutions />
         <WhoWeAre />
         <Outcomes />
+        <Customers />
         <CaseStudies />
         <WhyRadiant />
         <GetInTouch />
