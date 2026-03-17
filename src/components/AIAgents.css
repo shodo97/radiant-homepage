@@ -1,10 +1,21 @@
 /* ========================================
-   AI AGENTS — Modern tabbed agent showcase
+   AI AGENTS — Branded Product Suites
+   Dark bento grid with production badges
    ======================================== */
 .ai-agents {
-  background: #ffffff;
+  background: linear-gradient(170deg, #0A1628 0%, #0D1B2A 50%, #0A1628 100%);
   position: relative;
   overflow: hidden;
+}
+
+/* Subtle dot grid overlay */
+.ai-agents::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 
 /* ========================================
@@ -12,15 +23,20 @@
    ======================================== */
 .ag-header {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.ag-label {
+  color: var(--green-cta, #91C46B) !important;
 }
 
 .ag-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 700;
-  color: #1d1d1f;
-  line-height: 1.15;
+  color: #FFFFFF;
+  line-height: 1.2;
   margin: 0 0 16px;
   letter-spacing: -0.5px;
 }
@@ -32,171 +48,205 @@
 .ag-subtitle {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  color: #86868b;
-  line-height: 1.6;
-  max-width: 480px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 /* ========================================
-   FAMILY TABS — Horizontal pill row
+   BENTO GRID — 6 columns
+   Row 1: 2 featured (3 cols each)
+   Row 2: 3 standard (2 cols each)
    ======================================== */
-.ag-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
+.ag-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  position: relative;
 }
 
-.ag-tab {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #6e6e73;
-  background: #f5f5f7;
-  border: 1.5px solid transparent;
-  border-radius: 100px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  white-space: nowrap;
+.ag-card--featured {
+  grid-column: span 3;
 }
 
-.ag-tab:hover:not(.ag-tab--active) {
-  color: #1d1d1f;
-  background: #ededf0;
-}
-
-.ag-tab--active {
-  color: var(--tab-color);
-  background: color-mix(in srgb, var(--tab-color) 8%, white);
-  border-color: color-mix(in srgb, var(--tab-color) 20%, transparent);
-  font-weight: 600;
-}
-
-/* Color dot indicator */
-.ag-tab-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.3;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.ag-tab--active .ag-tab-dot {
-  opacity: 1;
-  background: var(--tab-color);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tab-color) 15%, transparent);
+.ag-card:not(.ag-card--featured) {
+  grid-column: span 2;
 }
 
 /* ========================================
-   AGENT CARDS — 5-column grid
+   CARD BASE
    ======================================== */
-.ag-cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-}
-
 .ag-card {
-  background: #f9fafb;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px;
-  padding: 28px 22px;
-  text-align: center;
+  padding: 32px 28px 28px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.03);
   transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
-  cursor: default;
-  animation: agCardIn 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
 .ag-card:hover {
-  background: #ffffff;
-  border-color: color-mix(in srgb, var(--family-color) 18%, transparent);
-  box-shadow:
-    0 4px 20px color-mix(in srgb, var(--family-color) 10%, transparent),
-    0 1px 6px rgba(0, 0, 0, 0.04);
+  background: rgba(255,255,255,0.05);
+  border-color: color-mix(in srgb, var(--suite-color) 30%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--suite-color) 12%, transparent);
   transform: translateY(-3px);
 }
 
-@keyframes agCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Agent icon — gradient circle */
-.ag-card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  background: var(--family-gradient, var(--family-color));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--family-color) 22%, transparent);
-  transition: all 0.35s ease;
-  flex-shrink: 0;
-}
-
-.ag-card:hover .ag-card-icon {
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--family-color) 28%, transparent);
-}
-
-.ag-card-icon svg {
-  width: 24px;
-  height: 24px;
-  color: white;
-}
-
-/* Agent name */
-.ag-card-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #1d1d1f;
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* Agent description */
-.ag-card-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12.5px;
-  color: #86868b;
-  line-height: 1.5;
-  margin: 0;
+/* Top accent line */
+.ag-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--suite-color), color-mix(in srgb, var(--suite-color) 50%, white));
+  opacity: 0.8;
 }
 
 /* ========================================
-   RESPONSIVE — LARGE TABLET
+   CARD TOP — Icon + Badge
    ======================================== */
-@media (max-width: 1100px) {
-  .ag-heading {
-    font-size: 34px;
-  }
-  .ag-cards {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-  }
-  .ag-card {
-    padding: 22px 16px;
-  }
+.ag-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.ag-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--suite-color), color-mix(in srgb, var(--suite-color) 60%, white));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--suite-color) 25%, transparent);
+  flex-shrink: 0;
+}
+
+.ag-card-icon svg {
+  width: 26px;
+  height: 26px;
+  color: white;
+}
+
+/* Production badge */
+.ag-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #91C46B;
+  background: rgba(145,196,107,0.08);
+  border: 1px solid rgba(145,196,107,0.15);
+  border-radius: 100px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.ag-card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #91C46B;
+  box-shadow: 0 0 6px rgba(145,196,107,0.5);
+  animation: agPulse 2s ease-in-out infinite;
+}
+
+@keyframes agPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+.ag-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.ag-card-domain {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--suite-color);
+  margin: 0 0 14px;
+  letter-spacing: 0.3px;
+}
+
+.ag-card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+/* ========================================
+   METRIC
+   ======================================== */
+.ag-card-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.ag-card-metric-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--suite-color);
+  line-height: 1;
+}
+
+.ag-card-metric-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ========================================
+   AGENT PILLS
+   ======================================== */
+.ag-card-agents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ag-agent-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid color-mix(in srgb, var(--suite-color) 18%, transparent);
+  border-radius: 100px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.ag-card:hover .ag-agent-pill {
+  color: rgba(255,255,255,0.65);
+  border-color: color-mix(in srgb, var(--suite-color) 30%, transparent);
+  background: color-mix(in srgb, var(--suite-color) 6%, transparent);
 }
 
 /* ========================================
@@ -204,15 +254,24 @@
    ======================================== */
 @media (max-width: 1024px) {
   .ag-heading {
-    font-size: 30px;
+    font-size: 32px;
   }
-  .ag-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  .ag-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-  .ag-tab {
-    font-size: 13px;
-    padding: 8px 16px;
+  .ag-card--featured,
+  .ag-card:not(.ag-card--featured) {
+    grid-column: span 1;
+  }
+  .ag-card {
+    padding: 26px 22px 24px;
+  }
+  .ag-card-name {
+    font-size: 19px;
+  }
+  .ag-card-metric-value {
+    font-size: 24px;
   }
 }
 
@@ -226,35 +285,21 @@
   .ag-subtitle {
     font-size: 14px;
   }
-  .ag-tabs {
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-  .ag-tab {
-    font-size: 12px;
-    padding: 7px 14px;
-    gap: 6px;
-  }
-  .ag-tab-dot {
-    width: 6px;
-    height: 6px;
-  }
-  .ag-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  .ag-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
   .ag-card {
-    padding: 20px 16px;
-    border-radius: 16px;
+    padding: 24px 20px 22px;
   }
-  .ag-card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 13px;
+  .ag-card-name {
+    font-size: 18px;
   }
-  .ag-card-icon svg {
-    width: 20px;
-    height: 20px;
+  .ag-card-desc {
+    font-size: 13px;
+  }
+  .ag-card-metric-value {
+    font-size: 22px;
   }
 }
 
@@ -265,24 +310,20 @@
   .ag-heading {
     font-size: 22px;
   }
-  .ag-tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-  }
-  .ag-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
   .ag-card {
-    padding: 18px 14px;
+    padding: 20px 16px 18px;
+    border-radius: 16px;
+  }
+  .ag-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  .ag-card-icon svg {
+    width: 22px;
+    height: 22px;
   }
   .ag-card-name {
-    font-size: 13px;
-  }
-  .ag-card-desc {
-    font-size: 11.5px;
+    font-size: 17px;
   }
 }

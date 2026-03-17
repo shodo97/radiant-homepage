@@ -7,16 +7,9 @@ const stats = [
   { value: '40%', label: 'Avg Cost Reduction' },
 ]
 
+/* Only logos with cropped viewBoxes that render well on light backgrounds */
 const logos = [
-  '21', '22', '25', '26', '28', '29', '24', '31', '35', '36',
-  '37', '39', '23', '30-1', '32', '33', '34', '38', '40', '41',
-]
-
-const badges = [
-  'Clearance-ready teams',
-  'FedRAMP aligned',
-  'CMMC compliant',
-  'SOC 2 certified',
+  '21', '22', '25', '28', '35', '36', '23',
 ]
 
 export default function Customers() {
@@ -55,18 +48,6 @@ export default function Customers() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Compliance badges */}
-        <div className="cu-badges">
-          {badges.map((b) => (
-            <span className="cu-badge" key={b}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              {b}
-            </span>
-          ))}
         </div>
       </div>
     </section>
