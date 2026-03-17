@@ -198,23 +198,46 @@
   color: #86868b;
 }
 
-/* ── Right Column — 2×2 Metrics ── */
+/* ── Right Column — Dashboard + Metrics ── */
 .cs-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 480px;
+  justify-content: center;
+}
+
+/* Dashboard illustration */
+.cs-hero-visual {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    0 12px 48px rgba(0, 0, 0, 0.04);
+}
+
+.cs-hero-dashboard {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Metrics row under dashboard */
+.cs-hero-metrics-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  flex: 0 0 340px;
-  align-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .cs-hero-metric {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 28px 24px;
+  gap: 4px;
+  padding: 16px 14px;
   background: #f5f5f7;
-  border-radius: 20px;
+  border-radius: 14px;
   transition: transform 0.3s ease;
+  text-align: center;
 }
 
 .cs-hero-metric:hover {
@@ -223,16 +246,16 @@
 
 .cs-hm-value {
   font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--hm-color);
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   line-height: 1;
 }
 
 .cs-hm-label {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 10.5px;
   font-weight: 500;
   color: #86868b;
   line-height: 1.35;
@@ -250,10 +273,23 @@
 .cs-card {
   background: #ffffff;
   border-radius: 24px;
-  padding: 28px 26px 24px;
+  padding: 0 0 24px;
   display: flex;
   flex-direction: column;
   transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
+}
+
+/* Card illustration */
+.cs-card-visual {
+  width: 100%;
+  overflow: hidden;
+}
+
+.cs-card-illus {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .cs-card:hover {
@@ -266,6 +302,11 @@
 /* Tag */
 .cs-card-top {
   margin-bottom: 14px;
+  padding: 0 26px;
+}
+
+.cs-card-top:first-child {
+  padding-top: 28px;
 }
 
 .cs-card-tag {
@@ -289,6 +330,7 @@
   line-height: 1.35;
   margin: 0 0 10px;
   letter-spacing: -0.2px;
+  padding: 0 26px;
 }
 
 /* Description */
@@ -298,7 +340,7 @@
   color: #86868b;
   line-height: 1.6;
   margin: 0 0 auto;
-  padding-bottom: 18px;
+  padding: 0 26px 18px;
 }
 
 /* Bottom: Metric + Outcome */
@@ -306,9 +348,11 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-top: 16px;
+  padding: 16px 26px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  margin-bottom: 14px;
+  margin: 0 26px 14px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .cs-card-metric {
@@ -355,6 +399,7 @@
   color: var(--cs-color);
   text-decoration: none;
   transition: gap 0.3s ease;
+  padding: 0 26px;
 }
 
 .cs-card-link:hover {
@@ -392,13 +437,16 @@
     font-size: 34px;
   }
   .cs-hero-right {
-    flex: 0 0 280px;
+    flex: 0 0 380px;
   }
   .cs-hm-value {
-    font-size: 26px;
+    font-size: 20px;
   }
   .cs-hero-metric {
-    padding: 22px 18px;
+    padding: 14px 10px;
+  }
+  .cs-hm-label {
+    font-size: 9.5px;
   }
 }
 
@@ -414,6 +462,9 @@
   .cs-hero-right {
     flex: none;
     width: 100%;
+  }
+  .cs-hero-metrics-row {
+    grid-template-columns: repeat(4, 1fr);
   }
   .cs-headline {
     font-size: 32px;
@@ -438,9 +489,9 @@
   .cs-hero-heading {
     font-size: 28px;
   }
-  .cs-hero-right {
+  .cs-hero-metrics-row {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
   }
   .cs-company-card {
     flex-wrap: wrap;
@@ -451,6 +502,17 @@
   }
   .cs-header {
     margin-bottom: 40px;
+  }
+  .cs-card-top,
+  .cs-card-title,
+  .cs-card-desc,
+  .cs-card-link {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cs-card-bottom {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
